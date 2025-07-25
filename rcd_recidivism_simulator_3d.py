@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="RCD-Based Recidivism Simulator (3D + Bars)", layout="wide")
 
-st.title("🧠 RCD-Based Recidivism Simulator with 3D Surface and Bar Chart")
+st.title("RCD-Based Recidivism Simulator with 3D Surface and Bar Chart")
 
 st.markdown("""
 This tool visualizes symbolic identity phase-space dynamics using psychological assessment data.
@@ -39,7 +39,7 @@ theta = max(0, 100 - bxd)
 mu = max(0, 100 - (intr + support + pclr_aff + mcmi_borderline) / 4)
 entropy = (eid + somc + pai_agg) / 3
 
-st.subheader("🧮 RCD Variables")
+st.subheader("RCD Variables")
 st.write(f"**γ (Phase Stability)**: {gamma:.2f}")
 st.write(f"**δ (Symbolic Drift)**: {delta:.2f}")
 st.write(f"**Θ (Karmic Resistance)**: {theta:.2f}")
@@ -47,7 +47,7 @@ st.write(f"**μ (Recursive Coherence)**: {mu:.2f}")
 st.write(f"**∇S (Entropy Gradient)**: {entropy:.2f}")
 
 # 3D Plot
-st.subheader("🌐 Symbolic Attractor Surface (3D)")
+st.subheader("Symbolic Attractor Surface (3D)")
 x = np.linspace(0, 1, 50)
 y = np.linspace(0, 1, 50)
 x, y = np.meshgrid(x, y)
@@ -65,7 +65,7 @@ fig3d.update_layout(
 st.plotly_chart(fig3d)
 
 # 2D Bar Chart
-st.subheader("📊 RCD Variable Snapshot (Bar Chart)")
+st.subheader("RCD Variable Snapshot (Bar Chart)")
 
 def get_color(value, var):
     if var == 'γ':

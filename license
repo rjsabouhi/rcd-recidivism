@@ -1,0 +1,25 @@
+"""
+RCD–Recidivism Simulator License (v1.0)
+=======================================
+
+Project Name:
+RCD–Recidivism Simulator
+
+Description:
+A cognitive-symbolic simulation tool designed to explore identity drift, 
+behavioral reinforcement, and systemic re-entry dynamics through the 
+Recursive Cognitive Dynamics (RCD) framework.
+
+Usage Rights:
+- Freely available for non-commercial, educational, and ethical research use.
+- Users may run simulations, modify code for personal or academic use, 
+  and share outputs with attribution.
+
+Restrictions:
+- You may NOT use this tool for commercial exploitation without explicit permission.
+- You may NOT sell, license, or sublicense derivative tools.
+- You may NOT deploy the simulator in real-world correctional or judicial systems 
+  without human ethical review.
+
+Ethical Boundaries:
+This tool must be used in service
