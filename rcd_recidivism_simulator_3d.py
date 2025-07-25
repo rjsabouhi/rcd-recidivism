@@ -1,4 +1,3 @@
-
 import streamlit as st
 import numpy as np
 import plotly.graph_objects as go
@@ -13,7 +12,16 @@ The 3D attractor surface shows how symbolic stability (γ), drift (δ), and entr
 The bar chart reflects the symbolic health of each core RCD variable.
 """)
 
-# Sidebar inputs
+# 📘 Glossary Definitions
+glossary = {
+    "γ (Phase Stability)": "Measures how stable the symbolic identity attractor is. Higher values mean the individual maintains a coherent identity over time.",
+    "δ (Symbolic Drift)": "Represents the tendency for identity to shift unpredictably under internal or external pressure. Higher values indicate greater risk of behavioral destabilization.",
+    "Θ (Karmic Resistance)": "Symbolizes resilience to phase collapse—how much 'inertial identity' an individual retains in the face of symbolic disruption.",
+    "μ (Recursive Coherence)": "Describes the strength of feedback loops between memory, hope, and reinforcement. Higher values reflect stronger internal self-regulation.",
+    "∇S (Entropy Gradient)": "Captures the symbolic chaos surrounding the individual's identity. Higher entropy means greater disorganization and environmental pressure.",
+}
+
+# Sidebar: Inputs and Glossary
 st.sidebar.header("Psychological Inputs")
 
 eid = st.sidebar.slider("MMPI-3: EID", 0, 100, 50)
@@ -32,6 +40,11 @@ pai_bor = st.sidebar.slider("PAI: Impulsivity", 0, 100, 50)
 mcmi_antisocial = st.sidebar.slider("MCMI-IV: Antisocial", 0, 100, 50)
 mcmi_borderline = st.sidebar.slider("MCMI-IV: Borderline", 0, 100, 50)
 
+# Glossary UI
+st.sidebar.markdown("### 📘 Glossary")
+selected_term = st.sidebar.selectbox("Select a variable to view definition:", list(glossary.keys()))
+st.sidebar.info(glossary[selected_term])
+
 # Derived RCD variables
 gamma = max(0, 100 - (eid + thd + cog) / 3 - mcmi_borderline / 4)
 delta = (bxd + impulsivity + pclr_antisocial + pai_bor + mcmi_antisocial) / 5
@@ -45,6 +58,24 @@ st.write(f"**δ (Symbolic Drift)**: {delta:.2f}")
 st.write(f"**Θ (Karmic Resistance)**: {theta:.2f}")
 st.write(f"**μ (Recursive Coherence)**: {mu:.2f}")
 st.write(f"**∇S (Entropy Gradient)**: {entropy:.2f}")
+
+# Walkthrough Section
+st.markdown("---")
+st.markdown("### 🧭 How to Use This Simulator")
+st.markdown("""
+1. **Adjust psychological sliders** on the left sidebar. These represent validated assessments from MMPI-3, HCR-20, PCL-R, and other clinical instruments.
+2. The simulator computes five core RCD variables:
+   - **γ**: Phase Stability
+   - **δ**: Symbolic Drift
+   - **Θ**: Karmic Resistance
+   - **μ**: Recursive Coherence
+   - **∇S**: Entropy Gradient
+3. The **3D plot** displays symbolic attractor surface dynamics over phase-time.
+4. The **bar chart** shows a snapshot of the symbolic health for each variable.
+5. You can hover over any graph for interactive values.
+6. If you're unfamiliar with terms, use the **Glossary** on the sidebar.
+""")
+st.markdown("---")
 
 # 3D Plot
 st.subheader("Symbolic Attractor Surface (3D)")
